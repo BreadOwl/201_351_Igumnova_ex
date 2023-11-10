@@ -14,9 +14,7 @@
 Иллюстрирование работы проекта:
 
 При запуске открывается авторизация:
-
-![Image auth](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin.png)
-
+![image](https://github.com/BreadOwl/201_351_Igumnova_ex/assets/71919494/4fcb23d2-f376-4054-867d-28a7b478711c)
 
 При неудачном введении пароля, выскакивает предупреждение о неверном пароле:
 
