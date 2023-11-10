@@ -10,17 +10,17 @@
 
 При запуске открывается авторизация:
 
-![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin.png)
+![Image auth](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin.png)
 
 
 При неудачном введении пароля, выскакивает предупреждение о неверном пароле:
 
-![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin2.png)
+![Image error auth](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin2.png)
 
 Если пароль верный, то открывается страница Счета.
 
-![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril1.png)
+![Image amount 1](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril1.png)
 
 Счетов может быть несколько, их можно листать с помощью кнопок, каждый имеет свое оформление.
 
-![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril2.png)
+![Image amount 2](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril2.png)
