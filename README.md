@@ -7,14 +7,20 @@
 Массив структур считываются при старте приложения из файла формата JSON, зашифрованного по алгоритму AES-256.
 
 Иллюстрирование работы проекта:
+
 При запуске открывается авторизация:
+
 ![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin.png)
 
+
 При неудачном введении пароля, выскакивает предупреждение о неверном пароле:
+
 ![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pin2.png)
 
 Если пароль верный, то открывается страница Счета.
+
 ![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril1.png)
 
 Счетов может быть несколько, их можно листать с помощью кнопок, каждый имеет свое оформление.
+
 ![Image alt](https://github.com/BreadOwl/201_351_Igumnova_ex/tree/part2/image/pril2.png)
