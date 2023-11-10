@@ -117,3 +117,62 @@ void AccountsPage::loadAccount(int index)
     setAutoFillBackground(true);
     setPalette(p);
 }
+
+QByteArray encryptData(const QByteArray &data, const QByteArray &key)
+{
+    AES_KEY aesKey;
+    AES_set_encrypt_key(reinterpret_cast<const unsigned char*>(key.constData()), 256, &aesKey);
+
+    QByteArray encryptedData;
+
+    int dataLength = data.length();
+
+    // Расчет длины дополнительного блока
+    int paddingLength = AES_BLOCK_SIZE - dataLength % AES_BLOCK_SIZE;
+    int paddedDataLength = dataLength + paddingLength;
+
+    // Создание выходного массива с дополнительным блоком
+    encryptedData.resize(paddedDataLength);
+
+    // Записываем оригинальные данные в выходной массив
+    memcpy(encryptedData.data(), data.constData(), dataLength);
+
+    // Заполняем остаток выходного массива случайными данными
+    for (int i = dataLength; i < paddedDataLength; i++) {
+        encryptedData[i] = qrand() % 256;
+    }
+
+    // Шифруем данные по блокам
+    for (int i = 0; i < paddedDataLength; i += AES_BLOCK_SIZE) {
+        AES_encrypt(reinterpret_cast<const unsigned char*>(encryptedData.constData() + i),
+                    reinterpret_cast<unsigned char*>(encryptedData.data() + i),
+                    &aesKey);
+    }
+
+    return encryptedData;
+}
+
+
+
+QByteArray decryptData(const QByteArray &encryptedData, const QByteArray &key)
+{
+    AES_KEY aesKey;
+    AES_set_decrypt_key(reinterpret_cast<const unsigned char*>(key.constData()), 256, &aesKey);
+
+    int encryptedDataLength = encryptedData.length();
+    int paddingLength = AES_BLOCK_SIZE - encryptedDataLength % AES_BLOCK_SIZE;
+
+    QByteArray decryptedData;
+    decryptedData.resize(encryptedDataLength);
+
+    // Расшифровываем данные по блокам
+    for (int i = 0; i < encryptedDataLength; i += AES_BLOCK_SIZE) {
+        AES_decrypt(reinterpret_cast<const unsigned char*>(encryptedData.constData() + i),
+                    reinterpret_cast<unsigned char*>(decryptedData.data() + i),
+                    &aesKey);
+    }
+
+    decryptedData.chop(paddingLength); // Удаляем дополнительный блок
+
+    return decryptedData;
+}
